@@ -1,116 +1,118 @@
-
-
-
-
-
-<table>
-    <thead>
-      <style>
-        table,td,th,tr{
-            border:1px solid black;
-            border-collapse: collapse;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header-contar{
+           width: 100%;
+           border:none;
+           padding: 10px;
+        }
+        .header{
+            text-align: center;
+            margin-bottom:10px ;
+            border: none;
             
-          }
-          .spacer {
-              display: inline-block; /* Allows margin to take effect */
-              width: 5cm; /* Set the width to 20 cm */
-          }
-           .square-checkbox {
-              display: inline-block;
-              width: 15px; 
-              height: 15px; 
-              border: 2px solid #000;
-              margin-right: 5px; 
-              cursor: pointer;
-              vertical-align: middle; 
-              .positioned-text {
-              position: absolute;
-              right: 15px; /* Adjust as needed */
-          }
- 
-          
-      </style>
-    </thead>
-    <body>
-    <table>
+        }
+        .flex-div{
+            text-align: left;
+            justify-content: space-between;
+            display: flex;
+        }
+        .header-section{
+            padding: none;
+            border-collapse:separate ;
+            border-spacing: 25px;
+            text-align: left;
+            border: 1px solid black;
+        }
+        .items-container{
+            margin-top: 10px;
+        }
+        .items-container table{
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    .items-container th,.items-container td{
+        border: 1px solid black;
+        padding: 5px;
+        text-align: left;
+        margin-top: 500px;
+    }
+  
+
+    </style>
+</head>
+<body>
+    <table class="header-contar">
+        <tr>
+            <td colspan="2" class="header">
+                <h3><u>CONSIGNMENT NOTE</u></h3>
+                <h2>SAN SOFTWARES</h2>
+                <p>419,4th Floor,M3M Urbansector 67, Gurgaon, Gurgaon PIN Code : 122018<</p>
+                <p>Phone : 7056448039 Fax:</p>
+                <div class="flex-div">
+                    <span>Service Tax No</span>
+                    <span>At owner risk</span>
+                    <span>Pan no : ATRPS48074</span>
+                </div>
+            </td>
+            <td class="header-section"><p><strong>To billed At:</strong></p>
+            <P>Mode of Payment</P>
+          <p>  <input type="checkbox"/>TBB<input type="checkbox"/>To pay<input type="checkbox"/>Paid</p>
+          <p>Billing Party</p>
+          <p>Service tax payable charge</p>
+          <p><input type="checkbox"/>Consignor<input type="checkbox"/>Consignee<input type="checkbox"/>Transporter</p>
+            </td>
+        </tr>
+        <td class="header-section">
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+        </td>
+        <td class="header-section">
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+        </td>
+        <td class="header-section">
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
+        </td>
+    </table>
+
+        <div class="items-container">
+            <table >
+                <tr>
+                    <th>No of pkgs</th>
+                    <th>Nature of Goods(said to contain)</th>
+                    <th>net weight</th>
+                    <th>gross weight</th>
+                    <th>Rate</th>
+                    <th>Freight Rs.</th>
+                    <th>Acknowledgement</th>
+                </tr>
+                <tr height=300>
+                    <td>0</td>
+                    <td>1*202 CONTAINER</td>
+                    <td>1.0000</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td rowspan="2" style="vertical-align: top;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        
+
     
-      <tr>
-     lign="center">CONSIGNMENT NOTE<br>SAN Softwares<br>419, 4TH Floor, M3M Urbana Sector 67, Gurgaon, PIN code: 122018<br>phone no.
-      
-      </td>
-       <td rowspan="2">To Billed At------<br>
-          Mode of payment<br>
-          <span style="display: flex; align-items: left;">
-              <span class="square-checkbox"></span>TBB 
-              <span class="square-checkbox"></span>to pay 
-              <span class="square-checkbox"></span> Paid 
-          </span>
-          Billing party------<br>
-          service tax payable by<br>
-          <span style="display: flex; align-items: center;">
-              <span class="square-checkbox"></span> consignor 
-              <span class="square-checkbox"></span> consignee 
-              <span class="square-checkbox"></span> transported
-          </span>
-          </td>
-          
-          
-          </tr>
-          <tr>
-              <td colspan="6" align="center">
-                  SERVICE TAX NO.<span class="spacer"></span>AT OWNER'S RISK<span class="spacer"></span>PAN NO. ATRPS4807R
-              </td>
-         <tr> 
-          <td colspan="3">Consignor: A.P. Cranes Pvt. Ltd.<br>
-              Address: G-1, 111-112, Chopanki Ind Area, Bhiwadi</td>
-              <td colspan="3">Consignor: A.P. Cranes Pvt. Ltd.<br>
-              Address: G-1, 111-112, Chopanki Ind Area, Bhiwadi</td>
-              <td>Consignor: A.P. Cranes Pvt. Ltd.<br>
-              Address: G-1, 111-112, Chopanki Ind Area, Bhiwadi</td>
-        
-      </tr>
-       <tr>
-        <td> No of<br> PKGS  </td>
-        <td   style="width:40%">Number of goods said to contain     </td>
-        <td>Net<br> Weight    </td>
-        <td>Gross<br> Weight  </td>
-        <td> >Rate   </td>
-        <td>Freight<br> Rs.   </td>
-        <td>  Acknowledgment   </td>
-      </tr>
-       <tr>
-         <td style="height:300px; text-align:left; vertical-align:top;"> 0 </td>
-        <td style="height:300px; text-align:left; vertical-align:top;" >1*20/2 CONTAINER   </td>
-        <td style="height:300px; text-align:left; vertical-align:top;">1.000</td>
-        <td>     </td>
-        <td>    </td>
-        <td>   </td>
-        <td>     </td>
-      </tr>
-     <tr>
-          <td style="height: 30px;" colspan="6">Invoice NO.<span class="spacer"></span>Invoice Dt.<span class="spacer"></span>Invoice value<span class="spacer"></span>0.00</td>
-          <td rowspan="3"> received signature</td>
-      </tr>
-       
-      
-       <tr>
-       
-       
-       </tr>
-         <tr>
-       <td style="height: 30px;" colspan="6">Terms and Condition:<br>
-                  A) The Goods are Booked at Owner's Risk unless / otherwise specifically certified by the Company.<br>
-                  B) The Company will not be responsible for Leakage / damage by Sun, Fire, Rain or Loss by Theft, Pilferage, Civil Riots.<br>
-                  C) The Company shall not be responsible if the goods are detained, seized, or confiscated by Government or Public authorities.<br>
-                  D) The Consignor shall be responsible to pay Octroi, Govt Taxes, Penalty, terminal tax, demurrages & other incidental charges,
-                  if any as imposed demanded by the Govt for the goods dispatched.<br>
-                  E) Company takes no responsibility for breakdown of vehicle enroute and of the consequences thereof.<br>
-                  F) All disputes are subject to jurisdiction of Delhi</td>
-        
-      
-      </tr>
-       
-    </body>
-  
-   </table>
-  
+</body>
+</html>
