@@ -1,118 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .header-contar{
-           width: 100%;
-           border:none;
-           padding: 10px;
-        }
-        .header{
-            text-align: center;
-            margin-bottom:10px ;
-            border: none;
-            
-        }
-        .flex-div{
-            text-align: left;
-            justify-content: space-between;
-            display: flex;
-        }
-        .header-section{
-            padding: none;
-            border-collapse:separate ;
-            border-spacing: 25px;
-            text-align: left;
-            border: 1px solid black;
-        }
-        .items-container{
-            margin-top: 10px;
-        }
-        .items-container table{
-            width: 100%;
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-    .items-container th,.items-container td{
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consignment Note</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        margin: 20px;
+    }
+    .header-container {
+        width: 100%;
+        border:none;
+        padding: 10px;
+    }
+    .header{
+        text-align: center;
+        margin-bottom: 10px;
+        border: none;
+    }
+    .flex-div{
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-section{
+        padding: 5px;
+        border-collapse: separate;
+        border-spacing: 20px;
+        text-align: left;
+        border: 1px solid black;
+    }
+
+    .items-container {
+        margin-top: 10px;
+    }
+    .items-container table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+    .items-container th, .items-container td {
         border: 1px solid black;
         padding: 5px;
         text-align: left;
-        margin-top: 500px;
     }
-  
+    .terms {
+        padding: 5px;
+        line-height: 1.4;
+    }
+    .signatures {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .signatures div {
+        width: 48%;
+    }
 
-    </style>
+   
+</style>
 </head>
 <body>
-    <table class="header-contar">
-        <tr>
-            <td colspan="2" class="header">
-                <h3><u>CONSIGNMENT NOTE</u></h3>
-                <h2>SAN SOFTWARES</h2>
-                <p>419,4th Floor,M3M Urbansector 67, Gurgaon, Gurgaon PIN Code : 122018<</p>
-                <p>Phone : 7056448039 Fax:</p>
-                <div class="flex-div">
-                    <span>Service Tax No</span>
-                    <span>At owner risk</span>
-                    <span>Pan no : ATRPS48074</span>
-                </div>
-            </td>
-            <td class="header-section"><p><strong>To billed At:</strong></p>
-            <P>Mode of Payment</P>
-          <p>  <input type="checkbox"/>TBB<input type="checkbox"/>To pay<input type="checkbox"/>Paid</p>
-          <p>Billing Party</p>
-          <p>Service tax payable charge</p>
-          <p><input type="checkbox"/>Consignor<input type="checkbox"/>Consignee<input type="checkbox"/>Transporter</p>
-            </td>
-        </tr>
-        <td class="header-section">
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-        </td>
-        <td class="header-section">
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-        </td>
-        <td class="header-section">
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-            <p><strong>Consignor:</strong>A.P Carnes Pvt.ltd</p>
-        </td>
-    </table>
 
-        <div class="items-container">
-            <table >
-                <tr>
-                    <th>No of pkgs</th>
-                    <th>Nature of Goods(said to contain)</th>
-                    <th>net weight</th>
-                    <th>gross weight</th>
-                    <th>Rate</th>
-                    <th>Freight Rs.</th>
-                    <th>Acknowledgement</th>
-                </tr>
-                <tr height=300>
-                    <td>0</td>
-                    <td>1*202 CONTAINER</td>
-                    <td>1.0000</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2" style="vertical-align: top;"></td>
-                </tr>
-            </table>
-        </div>
-        
-        
+<table class="header-container">
+    <tr>
+        <td colspan="2" class="header">
+            <h3><u>CONSIGNMENT NOTE</u></h3>
+            <h2>SAN Softwares</h2>
+            <p>SAN Softwares</p>
+            <p>419, 4TH Floor, M3M Urbana Sector 67, Gurgaon, PIN code: 122018</p>
+            <p>Phone: 9910058735</p>
+            <div class="flex-div">
+                <span>
+                    SERVICE TAX No :
+                </span>
+                <span>
+                    AT OWNER'S RISK
+                </span>
+                <span>
+                    PAN No: ATRPS4807R
+                </span>
+            </div>
+            
+        </td>
+        <td class="header-section">
+            <p><strong>To Billed At:</strong></p>
+            <p>Mode of Payment:</p>
+            <p><input type="checkbox"/> TBB <input type="checkbox"/> To Pay <input type="checkbox"/> Paid</p>
+            <p>Billing Party:</p>
+            <p><input type="checkbox"/> Consignor <input type="checkbox"/> Consignee <input type="checkbox"/> Transporter</p>
+        </td>
+    </tr>
 
-    
+    <tr>
+        <td class="header-section">
+            <p><strong>Consignor:</strong> A.P. Cranes Pvt. Ltd.</p>
+            <p><strong>Address:</strong> G-1, 111-112, Chopanki Ind Area, Bhiwadi</p>
+            <p><strong>Phone:</strong></p>
+            <p><strong>CST No:</strong></p>
+            <p><strong>LST No:</strong></p>
+        </td>
+        <td class="header-section">
+            <p><strong>Consignor:</strong> A.P. Cranes Pvt. Ltd.</p>
+            <p><strong>Address:</strong> G-1, 111-112, Chopanki Ind Area, Bhiwadi</p>
+            <p><strong>Phone:</strong></p>
+            <p><strong>CST No:</strong></p>
+            <p><strong>LST No:</strong></p>
+        </td>
+        <td class="header-section">
+            <p><strong>C.N. NO.: HCSN/ 300</strong></p>
+            <p>Booking Date: &nbsp;&nbsp; <strong>15/02/2022 18:17:26</strong> </p>
+            <p><strong>Vehicle No.:</strong></p>
+            <p><strong>Container No.:</strong></p>
+            <p><strong>Seal No.:</strong></p>
+            <p><strong>Ref No.:</strong></p>
+        </td>
+    </tr>
+</table>
+    <div class="items-container">
+        <table>
+            <tr>
+                <th>No of Pkgs</th>
+                <th>Nature of Goods (Said to Contain)</th>
+                <th>Net Weight</th>
+                <th>Gross Weight</th>
+                <th>Rate</th>
+                <th>Freight Rs.</th>
+                <th>Acknowledgement</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1*20' CONTAINER</td>
+                <td>1.000</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="2" style="vertical-align: top;"></td>
+            </tr>
+        </table>
+        <table>
+            <tr >
+                <td><div class="flex-div">
+                    <span>Invoice NO.</span>
+                    <span>Invoice Dt.</span>
+                    <span>Invoice Value  0.00</span>
+                </div>    </td>
+                <td>
+                    <p>Receiver Signature</p>
+                </td>
+                
+            </tr>
+            <tr>
+                <td><p><strong>Terms and Conditions:</strong></p>
+                     <p>A) The Goods are Booked at Owner's Risk unless / otherwise specifically certified by the Company.</p>
+                    <p>B) The Company will not be responsible for Leakage / damage by Sun, Fire, Rain or Loss by Theft, Pilferage, Civil Riots.</p>
+                    <p>C) The Company shall not be responsible if the goods are detained, seized, or confiscated by Government or Public authorities.</p>
+                    <p>D) The Consignor shall be responsible to pay Octroi, Govt Taxes, Penalty, terminal tax, demurrages & other incidental charges, if any as imposed demanded by the Govt for the goods dispatched.</p>
+                    <p>E) Company takes no responsibility for breakdown of vehicle enroute and of the consequences thereof.</p>
+                    <p>F) All disputes are subject to jurisdiction of Delhi.</p></td>
+
+                    <td>
+                        <p>For SAN Softwares</p>
+                        <p>Auth. Signatory</p>
+                    </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
 </body>
-</html>
+    </html>
