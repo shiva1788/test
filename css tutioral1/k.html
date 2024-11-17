@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo selectors and more designing</title>
+    <style>
+        .container{
+            border:2px solid black;
+            /* width: 66px; */
+            margin: 33px auto;
+            padding: 33px;
+            width: 666px;
+            background-color: aqua;
+        }
+        a{
+            text-decoration: none;
+        }
+        /* pseudo selector */
+        a:hover{
+            color:antiquewhite;
+            /* background-color: white; */
+        }
+        a:visited{
+        background-color: yellow;
+        }
+        
+        .btn{
+            border:none;
+            background-color:aqua;
+            cursor: pointer;
+            border-radius: 12px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="cont1">
+        <h3>This is my heading</h3>
+        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <a href="https:www.google.com" class="btn">Read More</a>
+        <button class="btn">Contact us</button>
+    </div>
+</body>
+</html>
