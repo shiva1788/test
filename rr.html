@@ -3,177 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consignment Note</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="exponential.js"></script>
+    <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            margin: 10px;
-        }
-        .header-container {
-            width: 100%;
-            border: none;
-            padding: 10px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 10px;
-            border: none;
-        }
-        .flex-div {
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-        }
-        .header-section {
-            padding: 10px;
-            border: 2px solid black;
-        }
-        .items-container {
-            margin: 10px 20px 20px;
+       
+        .container{
+            margin-top:50px;
             
-
+           
         }
-        .items-container table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid black;
+        .required::after {
+            content: ' *';
+            color: red;
         }
-        .items-container th, .items-container td {
-            border: 1px solid black;
-            padding: 5px;
-            text-align: left;
-        }
-        .terms {
-            padding: 5px;
-            line-height: 1.4;
-        }
-        .signatures {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        .signatures div {
-            width: 48%;
-        }
-         .square-checkbox {
-              display: inline-block;
-              width: 15px; 
-              height: 15px; 
-              border: 2px solid #000;
-              margin-right: 5px; 
-              cursor: pointer;
-              vertical-align: middle; 
-              .positioned-text {
-              position: absolute;
-              right: 15px; /* Adjust as needed */
-          }
-          
+        
     </style>
 </head>
 <body>
+    <div id="aaaaa">
+    <div class="container">
+        <form class="insert_field" id="insert_field" method="post" action="">
+            <div class="input-field">
+                <table class="table table-bordered " id="table_field">
+                    <tr>
+                        <th class="required">Id </th>
+                        <th class="required">Name</th>
+                        <th class="required">Class</th>
+                        <th class="required">About</th>
+                        <th >Add or Remove</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                            <input class="form-control"  type="text" name="textId" >
+                        </td>
+                        <td><input class="form-control"  type="text" name="textname" required></td>
+                        <td><input class="form-control"  type="text" name="textClass" required></td>
+                        <td><input class="form-control"  type="text" name="textAbout" required></td>
+                        <td><input class="btn btn-warning" type="button" name="add"  id="add" value="Add" required></td>
+                        
+                    </tr>
+                </table>
+            </div>    
+        </form>
+    </div>
+</div>
+    <script>
+         $(document).ready(function(){
+            //format of data
+            var html='<tr><td><input class="form-control"  type="text" name="textId" required></td><td><input class="form-control"  type="text" name="textname" required></td><td><input class="form-control"  type="text" name="textAbout" required></td><td><input class="form-control"  type="text" name="textClass" required></td> <td><input class="btn btn-danger" type="button" name="remove"  id="remove"  value="remove"></td></tr>';
+            $("#add").click(function(){
+                $("#table_field").append(html);
+            });
+            $("#table_field").on('click','#remove', function() {
+            $(this).closest('tr').remove() ;
+});
+         });
 
-<table class="header-container" style="border-spacing: 10px;">
-    <tr>
-        <td colspan="2" class="header">
-            <h3><u>CONSIGNMENT NOTE</u></h3>
-            <h2>SAN Softwares</h2>
-            
-            <p>419, 4TH Floor, M3M Urbana Sector 67, Gurgaon, PIN code: 122018</p>
-            <p>Phone: 9910058735</p>
-            <div class="flex-div">
-                <span>SERVICE TAX No:</span>
-                <span>AT OWNER'S RISK</span>
-                <span>PAN No: ATRPS4807R</span>
-            </div>
-        </td>
-        <td class="header-section">
-            <p><strong>To Billed At------<br>
-          Mode of payment<br></strong></p>
-           <span style="display: flex; align-items: left;">
-              <span class="square-checkbox"></span>TBB 
-              <span class="square-checkbox"></span>to pay 
-              <span class="square-checkbox"></span> Paid 
-          </span>
-            Billing party------<br>
-          service tax payable by<br>
-          <span style="display: flex; align-items: center;">
-              <span class="square-checkbox"></span> consignor 
-              <span class="square-checkbox"></span> consignee 
-              <span class="square-checkbox"></span> transported
-          </span>
-           
-            
-        </td>
-    </tr>
-
-    <tr>
-        <td class="header-section">
-            Consignor: A.P. Cranes Pvt. Ltd.<br>
-            Address: G-1, 111-112, Chopanki Ind Area, Bhiwadi<br>
-            Phone:<br>
-            CST No:<br>
-            LST No:<br>
-        </td>
-        <td class="header-section">
-            Consignor: A.P. Cranes Pvt. Ltd.<br>
-            Address: G-1, 111-112, Chopanki Ind Area, Bhiwadi<br>
-            Phone:<br>
-            CST No:<br>
-            LST No:<br>
-        </td>
-        <td class="header-section">
-            Consignor: A.P. Cranes Pvt. Ltd.<br>
-            Address: G-1, 111-112, Chopanki Ind Area, Bhiwadi<br>
-            Phone:<br>
-            CST No:<br>
-            LST No:<br>
-        </td>
-    </tr>
-</table>
-
-<div class="items-container">
-    <table>
-        <tr>
-            <th>No of Pkgs</th>
-            <th>Nature of Goods (Said to Contain)</th>
-            <th>Net Weight</th>
-            <th>Gross Weight</th>
-            <th>Rate</th>
-            <th>Freight Rs.</th>
-            <th>Acknowledgement</th>
-        </tr>
-        <tr>
-            <td style="height:300px; text-align:left; vertical-align:top;">0</td>
-            <td style="height:300px; text-align:left; vertical-align:top;">1*20' CONTAINER</td>
-            <td style="height:300px; text-align:left; vertical-align:top;">1.00
-             <td></td>
-                <td></td>
-                <td></td>
-                <td rowspan="2" style="vertical-align: top;"></td>
-            </tr>
-        </table>
-        <table>
-    <tr>
-        <td>
-            <div class="flex-div">
-                <span>Invoice NO.</span>
-                <span>Invoice Dt.</span>
-                <span>Invoice Value: 0.00</span>
-            </div>
-        </td>
-        <td rowspan="2">Receiver Signature<hr align="right"width="102%" style="margin-top: 45%;"><p align="right" style="padding-top: 10%;"/>For San Softwares</p><p align="right" style="padding-top: 50px;">Auth.Signatory</p></td>
-    </tr>
-    <tr>
-        <td style="vertical-align: top;">
-            <p><strong>Terms and Conditions:</strong></p>
-           <P>
-            A) The Goods are Booked at Owner's Unless / otherwise specifically certified by the Company.
          
-        </P> 
-        <p>B) The Goods are Booked at Owner's Unless / otherwise specifically certified by the Company.</p>
-         <p>B) The Goods are Booked at Owner's Unless / otherwise specifically certified by the Company.</p>   
-        </td>
         
-    </tr>
-</table>
+        
+    
+    
+        </script>
+</body>
+</html>

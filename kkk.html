@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            background-color:black;
+            border-radius: 10px;
+        }
+        #hash{
+            margin-top: 10px;
+            
+        }
+        #o{
+            color:white
+        }
+        
+    </style>
+    <script>
+        function addstud(){
+            //  var sf=document.getElementById("shi")
+            //  var rollno=document.sh.rollno.value;
+            //  var name=document.sh.name.value;
+            //  var clas=document.sh.class.value;
+            //  var tr=document.createElement('tr');
+            //  var td1=tr.appendChild(document.createElement('td'));
+            //  var td2=tr.appendChild(document.createElement('td'));
+            //  var td3=tr.appendChild(document.createElement('td'));
+            //  td1.innerHTML=rollno;
+            //  td2.innerHTML=name;
+            //  td3.innerHTML=clas;
+   
+            //  shi.appendChild(tr);
+        }
+   
+       </script>
+</head>
+<body>
+    <div id="container">
+    <form method="POST" name="sh">
+        <br>
+        
+        <div id="hash">
+            <label id="o">Roll no</label>
+            <input type="number" name="rollno" style="border-radius:10px;">
+        
+        
+            <label id="o">Name</label>
+            <input type="text" name="name" style="border-radius:10px;">
+        
+        <label id="o">Class</label>
+        <input type="text" name="class" style="border-radius:10px;">
+      </div>
+       
+       <br><br>
+        <input type="button"  value="addD" onclick="addstud();"><br>
+        <div id="ll" style="color: white;">
+            <table id="shi"  border="1" style="border-radius: 5px;">
+                <thead>
+                    <tr>
+                        <td>Roll no</td>
+                        <td>Name</td>
+                        <td>Class</td>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+        </div>
+      
+    </form>
+</div>
+    <script>
+     function addstud(){
+          var sf=document.getElementById("shi")
+          var rollno=document.sh.rollno.value;
+          var name=document.sh.name.value;
+          var clas=document.sh.class.value;
+          var tr=document.createElement('tr');
+          var td1=tr.appendChild(document.createElement('td'));
+          var td2=tr.appendChild(document.createElement('td'));
+          var td3=tr.appendChild(document.createElement('td'));
+          td1.innerHTML=rollno;
+          td2.innerHTML=name;
+          td3.innerHTML=clas;
+
+          shi.appendChild(tr);
+     }
+
+    </script>
+</body>
+</html>
