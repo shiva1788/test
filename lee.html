@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+       body{
+        background-color:rgb(226, 234, 237);
+        height: auto;
+       }
+        #container{
+           text-align: center;
+           margin-top: 120px;
+           background-color: rgba(172, 229, 226, 0.968);
+           display: block;
+           border: 2px solid lightcyan;
+           height: auto;
+           
+        }
+        #here{
+            margin-top: 20px;
+            margin-left: -50px;
+            color: black;
+            height: auto;
+          
+            
+        }
+        
+        #item{
+            background-color: rgb(170, 234, 234);
+            border-radius: 15px; 
+        }
+        #ha{
+            background-color:rgb(170, 234, 234);
+            border-radius: 15px; 
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+ 
+    <h3 id="opo"><u>Your Grocery</u></h3>
+    <p><u><span>You can search any grocery Item</span></u></p>
+    <input type="text" id="item" placeholder="Grocery Item">
+    <button id="ha" onclick="hashu()">Add</button>
+    <ol id="here"></ol>
+
+    <script id = "hello">
+        
+        function hashu() {
+            const bb = document.getElementById('here');
+            const s = document.getElementById('item');
+            const val = s.value.trim();
+        
+            if (val) {
+                // Create a list li for the item
+                const container = document.createElement('div');
+                // checkbox 
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.onclick =function(){container.style="text-decoration-line: line-through"};
+              
+                // text element
+                const itemText = document.createElement('span');
+                itemText.innerText = val;
+                itemText.onclick = function(p){
+                    p.checkbox=true,
+                    container.style="text-decoration-line: line-through";
+                    
+                };
+                
+                
+                //cross button
+                const crossButton = document.createElement('button');
+                crossButton.textContent = '×';
+                crossButton.onclick =function(){container.remove()};
+
+                container.appendChild(checkbox);
+                container.appendChild(itemText);
+                container.appendChild(crossButton);
+                
+                // Append the container 
+                bb.appendChild(container);
+                
+               //clear input filed adding the item
+                s.value = '';
+            } else {
+                alert('please enter the item');
+            }
+        }
+    
+    </script>
+   
+</body>
+
+</html>
