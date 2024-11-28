@@ -9,96 +9,157 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
-       body{
-        background-color:rgb(226, 234, 237);
-        height: auto;
-       }
-        #container{
-           text-align: center;
-           margin-top: 120px;
-           background-color: rgba(172, 229, 226, 0.968);
-           display: block;
-           border: 2px solid lightcyan;
-           height: auto;
-           
-        }
-        #here{
-            margin-top: 20px;
-            margin-left: -50px;
-            color: black;
+        body {
+            background-color: rgb(226, 234, 237);
             height: auto;
-          
-            
         }
-        
-        #item{
+
+        #container {
+            text-align: center;
+            margin-top: 120px;
+            background-color: rgba(172, 229, 226, 0.968);
+            display: block;
+            border: 2px solid lightcyan;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        #opo {
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        #here {
+            margin-top: 20px;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #item {
             background-color: rgb(170, 234, 234);
-            border-radius: 15px; 
+            border-radius: 15px;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            width: 250px;
         }
-        #ha{
-            background-color:rgb(170, 234, 234);
-            border-radius: 15px; 
+
+        #ha {
+            background-color: rgb(170, 234, 234);
+            border-radius: 15px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            color: #333;
+            font-weight: bold;
         }
-       
+
+        #ha:hover {
+            background-color: #9ae1e1;
+        }
+
+        .item-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(170, 234, 234);
+            border-radius: 15px;
+            margin-bottom: 10px;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .item-text {
+            flex: 1;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .cross-button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            color: #ff0000;
+            cursor: pointer;
+        }
+
+        .cross-button:hover {
+            color: #cc0000;
+        }
+
+        .checkbox {
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
 <body>
     <div id="container">
+        <h3 id="opo"><u>Your Grocery</u></h3>
+        <p><u><span>You can search any grocery Item</span></u></p>
+        <input type="text" id="item" placeholder="Grocery Item">
+        <button id="ha" onclick="hashu()">Add</button>
+        <ol id="here"></ol>
+    </div>
 
- 
-    <h3 id="opo"><u>Your Grocery</u></h3>
-    <p><u><span>You can search any grocery Item</span></u></p>
-    <input type="text" id="item" placeholder="Grocery Item">
-    <button id="ha" onclick="hashu()">Add</button>
-    <ol id="here"></ol>
-
-    <script id = "hello">
-        
+    <script id="hello">
         function hashu() {
             const bb = document.getElementById('here');
             const s = document.getElementById('item');
             const val = s.value.trim();
-        
+
             if (val) {
-                // Create a list li for the item
                 const container = document.createElement('div');
-                // checkbox 
+                container.classList.add('item-container'); // Added container class for better styling
+
+                // Checkbox
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
-                checkbox.onclick =function(){container.style="text-decoration-line: line-through"};
-              
-                // text element
-                const itemText = document.createElement('span');
-                itemText.innerText = val;
-                itemText.onclick = function(p){
-                    p.checkbox=true,
-                    container.style="text-decoration-line: line-through";
-                    
+                checkbox.classList.add('checkbox'); // Added class for styling
+
+                checkbox.onclick = function () {
+                    if (checkbox.checked) {
+                        container.style.textDecorationLine = 'line-through';
+                    } else {
+                        container.style.textDecorationLine = '';
+                    }
                 };
-                
-                
-                //cross button
+
+                // Text element
+                const itemText = document.createElement('span');
+                itemText.classList.add('item-text'); // Added class for styling
+                itemText.innerText = val;
+
+                itemText.onclick = function () {
+                    checkbox.checked = !checkbox.checked; // Toggle checkbox state
+                    checkbox.onclick(); // Trigger checkbox style update
+                };
+
+                // Cross button
                 const crossButton = document.createElement('button');
+                crossButton.classList.add('cross-button'); // Added class for styling
                 crossButton.textContent = '×';
-                crossButton.onclick =function(){container.remove()};
+                crossButton.onclick = function () {
+                    container.remove();
+                };
 
                 container.appendChild(checkbox);
                 container.appendChild(itemText);
                 container.appendChild(crossButton);
-                
-                // Append the container 
+
+                // Append the container
                 bb.appendChild(container);
-                
-               //clear input filed adding the item
+
+                // Clear input field after adding the item
                 s.value = '';
             } else {
-                alert('please enter the item');
+                alert('Please enter the item');
             }
         }
-    
     </script>
-   
+
 </body>
 
 </html>
