@@ -1,0 +1,451 @@
+<?php
+// Define variables and initialize with empty values
+$name = $password = $email = $phone = $dob = $address = $state = $city = $zip = $country = $experience = $salary = $hobbies = $gender = $bio = $image = "";
+$name_err = $password_err = $email_err = $phone_err = $dob_err = $experience_err = $gender_err = $hobbies_err = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate input data
+    if (empty($_POST["name"])) {
+        $name_err = "Name is required";
+    } else {
+        $name = $_POST["name"];
+    }
+
+    if (empty($_POST["password"])) {
+        $password_err = "Password is required";
+    } else {
+        $password = $_POST["password"];
+    }
+
+    if (empty($_POST["email"])) {
+        $email_err = "Email is required";
+    } else {
+        $email = $_POST["email"];
+    }
+
+    if (empty($_POST["phone"])) {
+        $phone_err = "Phone number is required";
+    } else {
+        $phone = $_POST["phone"];
+    }
+
+    if (empty($_POST["dob"])) {
+        $dob_err = "Date of Birth is required";
+    } else {
+        $dob = $_POST["dob"];
+    }
+
+    if (empty($_POST["experience"])) {
+        $experience_err = "Experience is required";
+    } else {
+        $experience = $_POST["experience"];
+    }
+
+    if (empty($_POST["gender"])) {
+        $gender_err = "Gender is required";
+    } else {
+        $gender = $_POST["gender"];
+    }
+
+    if (empty($_POST["hobbies"])) {
+        $hobbies_err = "At least one hobby is required";
+    } else {
+        $hobbies = implode(", ", $_POST["hobbies"]);
+    }
+
+    // Handling image upload
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+        $image = $_FILES['image']['name'];
+        move_uploaded_file($_FILES['image']['tmp_name'], "uploads/" . $image);
+    }
+
+    // Check if the form has no errors before proceeding (you can save to database or send an email here)
+    if (empty($name_err) && empty($password_err) && empty($email_err) && empty($phone_err) && empty($dob_err) && empty($experience_err) && empty($gender_err) && empty($hobbies_err)) {
+        // Process the data (e.g., save to database or send email)
+        echo "<h2>Form Submitted Successfully</h2>";
+        echo "<p>Name: $name</p>";
+        echo "<p>Email: $email</p>";
+        echo "<p>Phone: $phone</p>";
+        echo "<p>Experience: $experience years</p>";
+        echo "<p>Gender: $gender</p>";
+        echo "<p>Hobbies: $hobbies</p>";
+        echo "<p>Image uploaded: $image</p>";
+        // Do further processing like saving the data to a database here
+    }
+}
+?>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>PHP Form Example</title>
+    <style>
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .tabs li {
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .tabs .active {
+            color: #000;
+            border-bottom: 2px solid #000;
+        }
+
+        input[type="submit"] {
+            width: 100px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #34bc64;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 15px;
+        }
+
+        .row div {
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 0%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            min-width: 150px;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .row-checkbox {
+            display: flex;
+            justify-content: start;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .row-checkbox input {
+            width: auto;
+            min-width: 0;
+        }
+
+        .row-checkbox label {
+            margin-bottom: 0;
+        }
+
+        .checkbox-group {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .checkbox-group>div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-right: 20px;
+        }
+
+        .checkbox-group>div>label {
+            font-weight: normal;
+        }
+
+        @media (max-width: 1000px) {
+            .row-checkbox {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .checkbox-group {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        @media screen and (max-width: 1100px) and (min-width: 800px) {
+            .row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .row:nth-last-child(2),
+            .row:nth-last-child(3) {
+                display: flex;
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+
+    <div class="container">
+        <form class="form-container" method="POST" enctype="multipart/form-data">
+        <?php
+// Define variables and initialize with empty values
+$name = $password = $email = $phone = $dob = $address = $state = $city = $zip = $country = $experience = $salary = $hobbies = $gender = $bio = $image = "";
+$name_err = $password_err = $email_err = $phone_err = $dob_err = $experience_err = $gender_err = $hobbies_err = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate input data
+    if (empty($_POST["name"])) {
+        $name_err = "Name is required";
+    } else {
+        $name = $_POST["name"];
+    }
+
+    if (empty($_POST["password"])) {
+        $password_err = "Password is required";
+    } else {
+        $password = $_POST["password"];
+    }
+
+    if (empty($_POST["email"])) {
+        $email_err = "Email is required";
+    } else {
+        $email = $_POST["email"];
+    }
+
+    if (empty($_POST["phone"])) {
+        $phone_err = "Phone number is required";
+    } else {
+        $phone = $_POST["phone"];
+    }
+
+    if (empty($_POST["dob"])) {
+        $dob_err = "Date of Birth is required";
+    } else {
+        $dob = $_POST["dob"];
+    }
+
+    if (empty($_POST["experience"])) {
+        $experience_err = "Experience is required";
+    } else {
+        $experience = $_POST["experience"];
+    }
+
+    if (empty($_POST["gender"])) {
+        $gender_err = "Gender is required";
+    } else {
+        $gender = $_POST["gender"];
+    }
+
+    if (empty($_POST["hobbies"])) {
+        $hobbies_err = "At least one hobby is required";
+    } else {
+        $hobbies = implode(", ", $_POST["hobbies"]);
+    }
+
+    // Handling image upload
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+        $image = $_FILES['image']['name'];
+        move_uploaded_file($_FILES['image']['tmp_name'], "uploads/" . $image);
+    }
+
+    // Check if the form has no errors before proceeding (you can save to database or send an email here)
+    if (empty($name_err) && empty($password_err) && empty($email_err) && empty($phone_err) && empty($dob_err) && empty($experience_err) && empty($gender_err) && empty($hobbies_err)) {
+        // Process the data (e.g., save to database or send email)
+        echo "<h2>Form Submitted Successfully</h2>";
+        echo "<p>Name: $name</p>";
+        echo "<p>Email: $email</p>";
+        echo "<p>Phone: $phone</p>";
+        echo "<p>Experience: $experience years</p>";
+        echo "<p>Gender: $gender</p>";
+        echo "<p>Hobbies: $hobbies</p>";
+        echo "<p>Image uploaded: $image</p>";
+        // Do further processing like saving the data to a database here
+    }
+}
+?>
+            <div class="row">
+                <div>
+                    <label for="name">Name *</label>
+                    <input type="text" name="name" value="<?= $name; ?>" placeholder="Name" required>
+                    <span class="text-danger"><?= $name_err; ?></span>
+                </div>
+                <div>
+                    <label for="password">Password *</label>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <span class="text-danger"><?= $password_err; ?></span>
+                </div>
+                <div>
+                    <label for="email">Email *</label>
+                    <input type="email" name="email" value="<?= $email; ?>" placeholder="Enter email" required>
+                    <span class="text-danger"><?= $email_err; ?></span>
+                </div>
+                <div>
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" name="phone" value="<?= $phone; ?>" placeholder="Enter Phone Number" required>
+                    <span class="text-danger"><?= $phone_err; ?></span>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label for="dob">Date Of Birth *</label>
+                    <input type="date" name="dob" value="<?= $dob; ?>" required>
+                    <span class="text-danger"><?= $dob_err; ?></span>
+                </div>
+                <div>
+                    <label for="address">Address</label>
+                    <input type="text" name="address" value="<?= $address; ?>" placeholder="Address">
+                </div>
+                <div>
+                    <label for="state">State</label>
+                    <select name="state">
+                        <option value="" disabled selected>Select a state</option>
+                        <option value="State1" <?= $state == 'State1' ? 'selected' : ''; ?>>State1</option>
+                        <option value="State2" <?= $state == 'State2' ? 'selected' : ''; ?>>State2</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="city">City</label>
+                    <select name="city">
+                        <option value="" disabled selected>Select a city</option>
+                        <option value="City1" <?= $city == 'City1' ? 'selected' : ''; ?>>City1</option>
+                        <option value="City2" <?= $city == 'City2' ? 'selected' : ''; ?>>City2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label for="zip">Zip/Postal Code</label>
+                    <input type="text" name="zip" value="<?= $zip; ?>" placeholder="Enter Pincode">
+                </div>
+                <div>
+                    <label for="country">Country</label>
+                    <select name="country">
+                        <option value="India" <?= $country == 'India' ? 'selected' : ''; ?>>India</option>
+                        <option value="USA" <?= $country == 'USA' ? 'selected' : ''; ?>>USA</option>
+                        <option value="UK" <?= $country == 'UK' ? 'selected' : ''; ?>>UK</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="experience">Experience *</label>
+                    <input type="number" name="experience" value="<?= $experience; ?>" placeholder="In years" required>
+                    <span class="text-danger"><?= $experience_err; ?></span>
+                </div>
+                <div>
+                    <label for="salary">Salary</label>
+                    <input type="text" name="salary" value="<?= $salary; ?>" placeholder="In INR">
+                </div>
+            </div>
+            <div class="row-checkbox">
+                <div>
+                    <label>Hobbies<sup>*</sup>:</label>
+                    <div class="checkbox-group">
+                        <div>
+                            <input type="checkbox" name="hobbies[]" value="reading" <?= in_array('reading', $_POST['hobbies'] ?? []) ? 'checked' : ''; ?>>
+                            <label for="reading">Reading</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="hobbies[]" value="travelling" <?= in_array('travelling', $_POST['hobbies'] ?? []) ? 'checked' : ''; ?>>
+                            <label for="travelling">Travelling</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="hobbies[]" value="gaming" <?= in_array('gaming', $_POST['hobbies'] ?? []) ? 'checked' : ''; ?>>
+                            <label for="gaming">Gaming</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="hobbies[]" value="other" <?= in_array('other', $_POST['hobbies'] ?? []) ? 'checked' : ''; ?>>
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                    <span class="text-danger"><?= $hobbies_err; ?></span>
+                </div>
+
+                <div>
+                    <label>Gender<sup>*</sup>:</label>
+                    <div class="checkbox-group">
+                        <div>
+                            <input type="radio" name="gender" value="male" <?= $gender == 'male' ? 'checked' : ''; ?>>
+                            <label for="male">Male</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" value="female" <?= $gender == 'female' ? 'checked' : ''; ?>>
+                            <label for="female">Female</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" value="other" <?= $gender == 'other' ? 'checked' : ''; ?>>
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                    <span class="text-danger"><?= $gender_err; ?></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="bio">Bio:</label>
+                    <textarea name="bio" rows="3" placeholder="Bio"><?= $bio; ?></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label for="image">Upload Image</label>
+                    <input type="file" name="image">
+                </div>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
