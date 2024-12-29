@@ -1,0 +1,40 @@
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  if (b === 0) throw new Error("Division by zero");
+  return a / b;
+}
+// in one function using switch case
+
+
+function calculate(operation, a, b) {
+  switch (operation) {
+    case "add":
+      return a + b;
+    case "subtract":
+      return a - b;
+    case "multiply":
+      return a * b;
+    case "divide":
+      if (b === 0) throw new Error("Division by zero");
+      return a / b;
+    default:
+      throw new Error("Invalid operation");
+  }
+}
+
+// Usage:
+console.log(calculate("add", 5, 3));       // Output: 8
+console.log(calculate("subtract", 5, 3)); // Output: 2
+console.log(calculate("multiply", 5, 3)); // Output: 15
+console.log(calculate("divide", 5, 3));   // Output: 1.666...
