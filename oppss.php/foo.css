@@ -1,0 +1,162 @@
+
+    * {
+        transition: all 0.3s ease-in-out;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: white;
+    }
+    
+
+    .container {
+        width: 75%;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabs {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+        border-bottom: 2px solid #ccc;
+    }
+
+    .tabs li {
+        padding: 10px 20px;
+        cursor: pointer;
+        color: #555;
+    }
+
+    .tabs .active {
+        color: #000;
+        border-bottom: 2px solid #000;
+    }
+
+    input[type="submit"] {
+        width: 100px;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #34bc64;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .row div {
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        min-width: 150px;
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .row-checkbox {
+        display: flex;
+        justify-content: start;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .row-checkbox input {
+        width: auto;
+        min-width: 0;
+    }
+
+    .row-checkbox label {
+        margin-bottom: 0;
+    }
+
+    .row-checkbox>div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkbox-group {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .checkbox-group>div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-right: 20px;
+    }
+
+    .checkbox-group>div>label {
+        font-weight: normal;
+    }
+
+    @media (max-width: 1000px) {
+        .row-checkbox {
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+
+    @media (max-width:500px) {
+        .checkbox-group {
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input[type="file"] {
+        width: auto;
+        max-width: 100%;
+    }
+
+    @media screen and (max-width: 1100px) and (min-width: 800px) {
+        .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .row:nth-last-child(2),
+        .row:nth-last-child(3) {
+            display: flex;
+            width: 100%;
+        }
+    }
+    
