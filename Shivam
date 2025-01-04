@@ -1,0 +1,71 @@
+<?php
+// Function to sanitize input
+function sanitizeInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+// Validate form inputs
+$errors = [];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize inputs
+    $name = sanitizeInput($_POST['name'] ?? '');
+    $email = sanitizeInput($_POST['email'] ?? '');
+    $age = sanitizeInput($_POST['age'] ?? '');
+
+    // Name validation
+    if (empty($name)) {
+        $errors['name'] = "Name is required.";
+    } elseif (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+        $errors['name'] = "Only letters and spaces are allowed.";
+    }
+
+    // Email validation
+    if (empty($email)) {
+        $errors['email'] = "Email is required.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = "Invalid email format.";
+    }
+
+    // Age validation
+    if (empty($age)) {
+        $errors['age'] = "Age is required.";
+    } elseif (!filter_var($age, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1, "max_range" => 120]])) {
+        $errors['age'] = "Age must be a valid number between 1 and 120.";
+    }
+
+    // Check if there are errors
+    if (empty($errors)) {
+        // Process form (e.g., save to database)
+        echo "Form submitted successfully!";
+    }
+}
+?>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="<?php echo $_POST['name'] ?? ''; ?>">
+    <span><?php echo $errors['name'] ?? ''; ?></span><br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" value="<?php echo $_POST['email'] ?? ''; ?>">
+    <span><?php echo $errors['email'] ?? ''; ?></span><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" value="<?php echo $_POST['age'] ?? ''; ?>">
+    <span><?php echo $errors['age'] ?? ''; ?></span><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/", $password)) {
+    $errors['password'] = "Password must be at least 8 characters long and include letters and numbers.";
+}
+function validateDropdown($value, $allowedValues) {
+    return in_array($value, $allowedValues);
+}
+
+$allowedGenders = ['male', 'female', 'other'];
+if (!validateDropdown($_POST['gender'], $allowedGenders)) {
+    $errors['gender'] = "Invalid gender selected.";
+}
