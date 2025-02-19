@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Banner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: center; /* Brings text and logo closer */
+            align-items: center;
+            background-color: #1d2e85;
+            color: white;
+            padding: 15px; /* Reduced padding */
+            width: 75%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .text {
+            flex: 1.2; /* Reduced flex size */
+            text-align: left;
+            margin-right: 10px; /* Moves text closer to the logo */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 34px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 3px;
+            text-decoration: underline;
+        }
+
+        .logo {
+            flex: 0.8; /* Further reduces gap */
+            text-align: center;
+            background-color: #1d2e85; /* Blue background for logo */
+            padding: 10px;
+            border-radius: 10px; /* Soft rounded edges */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 110px; /* Adjusted size */
+            max-width: 100%;
+            height: auto;
+            background-color: white; /* Optional: Keeps logo background clean */
+            padding: 5px; /* Adds spacing to separate from blue */
+            border-radius: 5px; /* Slight rounding for a polished look */
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="text">
+            <h1>RISHIKUL VIDYA NIKETAN</h1>
+            <p>Affiliated to be HBSE</p>
+        </div>
+        <div class="logo">
+            <img src="LOG.jpg" alt="School Logo">
+        </div>
+    </div>
+</body>
+</html>
